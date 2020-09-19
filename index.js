@@ -40,7 +40,6 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
       .setTitle('프로필')
       .setAuthor(id, img)
-      .setThumbnail(img)
       .addBlankField()
       .addField('Inline field title', 'Some value here')
       .addField('Inline field title', 'Some value here', true)
