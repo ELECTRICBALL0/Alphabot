@@ -34,10 +34,10 @@ client.on('message', (message) => {
     return message.reply('kpong');
   }
 
-  if(message.content == 'embed') {
+  if(message.content == '프로필') {
     let img = member.displayAvatarURL;
     let embed = new Discord.RichEmbed()
-      .setTitle(memder.id)
+      .setTitle('aAa')
       .setURL('https://www.google.co.kr/')
       .setAuthor('나긋해', img, 'http://www.naver.com')
       .setThumbnail(img)
