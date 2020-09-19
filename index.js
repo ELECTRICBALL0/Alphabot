@@ -31,7 +31,7 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == 'ping') {
-    return message.reply('pong');
+    return message.reply('kpong');
   }
 
   if(message.content == 'embed') {
