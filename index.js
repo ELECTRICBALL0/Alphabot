@@ -28,6 +28,8 @@ client.on("guildMemberRemove", (member) => {
 });
 
 client.on('message', (message) => {
+  mem = message.member;
+
   if(message.author.bot) return;
 
   if(message.content == 'ping') {
@@ -35,8 +37,8 @@ client.on('message', (message) => {
   }
 
   if(message.content == '프로필') {
-    let id = message.name;
-    let img = message.displayAvatarURL;
+    let id = mem.name;
+    let img = mem.displayAvatarURL;
     let embed = new Discord.RichEmbed()
       .setTitle('aAa')
       .setURL('https://www.google.co.kr/')
