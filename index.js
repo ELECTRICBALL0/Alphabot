@@ -35,7 +35,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == '프로필') {
-    let id = message.author.username;
+    let id = message.author.Client;
     let img = message.author.displayAvatarURL;
     let embed = new Discord.RichEmbed()
       .setTitle('프로필')
