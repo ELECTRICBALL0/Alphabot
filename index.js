@@ -35,9 +35,8 @@ client.on('message', (message) => {
   }
 
   if(message.content == '프로필') {
-    const member = message.member;
-    let id = member.nickname;
-    let img = member.displayAvatarURL;
+    let id = message.name;
+    let img = message.displayAvatarURL;
     let embed = new Discord.RichEmbed()
       .setTitle('aAa')
       .setURL('https://www.google.co.kr/')
