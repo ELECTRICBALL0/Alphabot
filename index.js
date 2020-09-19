@@ -28,8 +28,6 @@ client.on("guildMemberRemove", (member) => {
 });
 
 client.on('message', (message) => {
-  mem = message.member;
-
   if(message.author.bot) return;
 
   if(message.content == 'ping') {
@@ -37,8 +35,8 @@ client.on('message', (message) => {
   }
 
   if(message.content == '프로필') {
-    let id = message.members;
-    let img = mem.displayAvatarURL;
+    let id = message.member.name;
+    let img = message.member.displayAvatarURL;
     let embed = new Discord.RichEmbed()
       .setTitle('aAa')
       .setURL('https://www.google.co.kr/')
@@ -52,7 +50,7 @@ client.on('message', (message) => {
       .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('by 전지호ELEC', img)
+      .setFooter('by 전지호ELEC-B', img)
 
     message.channel.send(embed)
   } 
