@@ -35,12 +35,11 @@ client.on('message', (message) => {
   }
 
   if(message.content == '프로필') {
-    let id = message.member.name;
-    let img = message.member.displayAvatarURL;
+    let id = message.user.name;
+    let img = message.user.displayAvatarURL;
     let embed = new Discord.RichEmbed()
-      .setTitle('aAa')
-      .setURL('https://www.google.co.kr/')
-      .setAuthor(id, img, 'http://www.naver.com')
+      .setTitle('프로필')
+      .setAuthor(id, img)
       .setThumbnail(img)
       .addBlankField()
       .addField('Inline field title', 'Some value here')
