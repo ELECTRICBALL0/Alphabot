@@ -37,7 +37,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == '프로필') {
-    let id = mem.name;
+    let id = message.members;
     let img = mem.displayAvatarURL;
     let embed = new Discord.RichEmbed()
       .setTitle('aAa')
