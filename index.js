@@ -52,7 +52,7 @@ client.on('message', (message) => {
       .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('by 전지호', img)
+      .setFooter('by 전지호ELEC', img)
 
     message.channel.send(embed)
   } 
