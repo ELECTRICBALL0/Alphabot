@@ -37,7 +37,7 @@ client.on('message', (message) => {
   if(message.content == 'embed') {
     let img = member.displayAvatarURL;
     let embed = new Discord.RichEmbed()
-      .setTitle('타이틀')
+      .setTitle(memder.id)
       .setURL('https://www.google.co.kr/')
       .setAuthor('나긋해', img, 'http://www.naver.com')
       .setThumbnail(img)
