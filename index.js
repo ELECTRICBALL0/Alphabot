@@ -35,7 +35,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == 'embed') {
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let img = member.displayAvatarURL;
     let embed = new Discord.RichEmbed()
       .setTitle('타이틀')
       .setURL('https://www.google.co.kr/')
@@ -49,7 +49,7 @@ client.on('message', (message) => {
       .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('by 전지호', '')
+      .setFooter('by 전지호', img)
 
     message.channel.send(embed)
   } 
