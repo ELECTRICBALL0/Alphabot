@@ -92,14 +92,12 @@ client.on('message', (message) => {
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
       message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
       return;
-    }
-    else if(!isNum) {
-      if(message.content.split('<@').length == 2) 
-      {
+    } 
+    else if(!isNum) { // c @나긋해 3
+      if(message.content.split('<@').length == 2) {
         if(isNaN(message.content.split(' ')[2])) return;
 
         var user = message.content.split(' ')[1].split('<@!')[1].split('>')[0];
-        message.channel.send(user);
         var count = parseInt(message.content.split(' ')[2])+1;
         const _limit = 10;
         let _cnt = 0;
@@ -115,16 +113,15 @@ client.on('message', (message) => {
         });
       }
     } 
-    else 
-    {
+    else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
           AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
         })
         .catch(console.error)
-        message.channel.send(abc);
     }
   }
+
 });
 
 function checkPermission(message) {
