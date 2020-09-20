@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = process.argv.length == 2 ? process.env.token : '';
+const token = process.argv.length == 2 ? process.env.token : "";
 const greetingsChannelName = "인사";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('켰다.');
+  client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
