@@ -34,7 +34,7 @@ client.on('message', (message) => {
     return message.reply('kpong');
   }
 
-  if(message.content == '프로필') {
+  if(message.content == '!프로필') {
     let id = message.author.username;
     let img = message.author.displayAvatarURL;
     let embed = new Discord.RichEmbed()
