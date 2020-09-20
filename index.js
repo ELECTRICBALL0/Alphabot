@@ -114,7 +114,7 @@ client.on('message', (message) => {
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지e'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor('공지 of ' + message.author.name)
+        .setAuthor('공지 of ' + message.author.username)
         .setFooter('coded by 전지호')
         .setTimestamp()
   
