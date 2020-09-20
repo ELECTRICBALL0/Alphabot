@@ -104,7 +104,7 @@ client.on('message', (message) => {
         const _limit = 10;
         let _cnt = 0;
 
-      /*  message.channel.fetchMessages({limit: _limit}).then(collected => {
+        message.channel.fetchMessages({limit: _limit}).then(collected => {
           collected.every(msg => {
             if(msg.author.id == user) {
               msg.delete();
@@ -112,7 +112,7 @@ client.on('message', (message) => {
             }
             return !(_cnt == count);
           });
-        });*/
+        });
       }
     } 
     else 
@@ -122,6 +122,7 @@ client.on('message', (message) => {
           AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
         })
         .catch(console.error)
+        message.channel.send(a);
     }
   }
 });
