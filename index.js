@@ -98,6 +98,7 @@ client.on('message', (message) => {
         if(isNaN(message.content.split(' ')[2])) return;
 
         var user = message.content.split(' ')[1].split('<@!')[1].split('>')[0];
+        message.channel.send(user);
         var count = parseInt(message.content.split(' ')[2])+1;
         const _limit = 10;
         let _cnt = 0;
