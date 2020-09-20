@@ -53,7 +53,8 @@ client.on('message', (message) => {
       {name: '!ping', desc: '현재 핑 상태'},
       {name: '!프로필', desc: '프로필 확인'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
-      {name: '!청소', desc : '채팅을 청소합니다.'}
+      {name: '!청소', desc : '채팅 청소'},
+      {name: '!초대코드', desc : '초대코드'}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
