@@ -122,7 +122,7 @@ client.on('message', (message) => {
           AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
         })
         .catch(console.error)
-        message.channel.send(a);
+        message.channel.send(abc);
     }
   }
 });
