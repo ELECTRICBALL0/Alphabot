@@ -41,9 +41,6 @@ client.on('message', (message) => {
       .setTitle('프로필')
       .setAuthor(id)
       .setThumbnail(img)
-      .addBlankField()
-      .addField('ㅇㅇ', 'ㅇㅇ')
-      .addBlankField()
       .setTimestamp()
       .setFooter('written by 전지호', img)
 
