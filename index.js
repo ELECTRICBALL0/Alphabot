@@ -92,7 +92,8 @@ client.on('message', (message) => {
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
       message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
       return;
-    } else if(!isNum) {
+    } 
+    else if(!isNum) {
       if(message.content.split('<@').length == 2) {
         if(isNaN(message.content.split(' ')[2])) return;
 
@@ -126,7 +127,8 @@ function checkPermission(message) {
     message.channel.send(`<@${message.author.id}> ` + "명령어를 수행할 관리자 권한을 소지하고 있지않습니다.")
     return true;
   } 
-  else {
+  else 
+  {
     return false;
   }
 }
