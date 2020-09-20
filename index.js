@@ -73,7 +73,7 @@ client.on('message', (message) => {
       if(message.member != null) { // 채널에서 공지 쓸 때
         let contents = message.content.slice('!전체공지'.length);
         message.member.guild.members.array().forEach(x => {
-          if(x.user.bot) return;
+            if(x.user.bot) return;
           x.user.send(`<@${message.author.id}> ${contents}`);
         });
         return message.reply('공지를 전송했습니다.');
@@ -88,14 +88,12 @@ client.on('message', (message) => {
 
     var clearLine = message.content.slice('!청소 '.length);
     var isNum = !isNaN(clearLine)
-    
-    message.channel.send(message.content.split('<@'));
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
       message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
       return;
     }
-    /*else if(!isNum) {
+    else if(!isNum) {
       if(message.content.split('<@').length == 2) {
         if(isNaN(message.content.split(' ')[2])) return;
 
@@ -114,13 +112,14 @@ client.on('message', (message) => {
           });
         });
       }
-    } else {
+    } 
+    else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
           AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
         })
         .catch(console.error)
-    }*/
+    }
   }
 });
 
