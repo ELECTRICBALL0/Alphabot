@@ -30,7 +30,7 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == '!ping') {
+  if(message.content == 'ping') {
     return message.reply('kpong');
   }
 
@@ -56,7 +56,7 @@ client.on('message', (message) => {
       {name: '!프로필', desc: 'embed 예제2 (help)'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
     ];
-    let commandStr = '----';
+    let commandStr = '';
     let embed = new Discord.RichEmbed()
       .setAuthor('Help', helpImg)
       .setFooter(`written by 전지호`)
