@@ -35,26 +35,18 @@ client.on('message', (message) => {
     return message.reply('pong');
   }
 
-  if(message.content == '!프로필') {
-    let id = message.author.username;
-    let img = message.author.displayAvatarURL;
-    let embed = new Discord.RichEmbed()
-      .setTitle('프로필')
-      .setAuthor(id)
-      .setThumbnail(img)
-      .setTimestamp()
-      .setFooter('coded by 전지호')
-
-    message.channel.send(embed)
-  } 
-  else if(message.content == '!help') {
+  if(message.content == '!help') 
+  {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
+      {name: '!help', desc: '도움말'},
       {name: '!ping', desc: '현재 핑 상태'},
       {name: '!프로필', desc: '프로필 확인'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
-      {name: '!청소', desc : '채팅 청소'},
-      {name: '!초대코드', desc : '초대코드'}
+      {name: '!전체공지e', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
+      {name: '!청소', desc : '텍스트 지움'},
+      {name: '!초대코드', desc : '해당 채널의 초대 코드 표기'},
+      {name: '!초대코드b', desc: '봇이 들어가있는 모든 채널의 초대 코드 표기'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -69,6 +61,20 @@ client.on('message', (message) => {
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
+  
+  } 
+  else if(message.content == '!프로필') 
+  {
+    let id = message.author.username;
+    let img = message.author.displayAvatarURL;
+    let embed = new Discord.RichEmbed()
+      .setTitle('프로필')
+      .setAuthor(id)
+      .setThumbnail(img)
+      .setTimestamp()
+      .setFooter('coded by 전지호')
+
+    message.channel.send(embed)
   }
   else if(message.content == '!초대코드') 
   {
@@ -77,8 +83,23 @@ client.on('message', (message) => {
         message.channel.send(invite.url)
       });
   }
+  else if(message.content == '!초대코드b') 
+  {
+    client.guilds.array().forEach(x => {
+      x.channels.find(x => x.type == 'text').createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
+        .then(invite => {
+          message.channel.send(invite.url)
+        })
+        .catch((err) => {
+          if(err.code == 50013) {
+            message.channel.send('**'+x.channels.find(x => x.type == 'text').guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
+          }
+        })
+    });
+  }
 
-  if(message.content.startsWith('!전체공지')) {
+  if(message.content.startsWith('!전체공지')) 
+  {
     if(checkPermission(message)) return
       if(message.member != null) { // 채널에서 공지 쓸 때
         let contents = message.content.slice('!전체공지'.length);
@@ -92,8 +113,30 @@ client.on('message', (message) => {
         return message.reply('채널에서 실행해주세요.');
       }
   }
-
-  if(message.content.startsWith('!청소')) {
+  else if(message.content.startsWith('!전체공지e')) 
+  {
+    if(checkPermission(message)) return
+    if(message.member != null) { // 채널에서 공지 쓸 때
+      let contents = message.content.slice('!전체공지e'.length);
+      let embed = new Discord.RichEmbed()
+        .setAuthor('공지 of ' + message.author.name)
+        .setFooter('coded by 전지호')
+        .setTimestamp()
+  
+      embed.addField('공지: ', contents);
+  
+      message.member.guild.members.array().forEach(x => {
+        if(x.user.bot) return;
+        x.user.send(embed)
+      });
+  
+      return message.reply('공지를 전송했습니다.');
+    } else {
+      return message.reply('채널에서 실행해주세요.');
+    }
+  }
+  if(message.content.startsWith('!청소')) 
+  {
     if(checkPermission(message)) return
 
     var clearLine = message.content.slice('!청소 '.length);
@@ -123,7 +166,8 @@ client.on('message', (message) => {
         });
       }
     } 
-    else {
+    else 
+    {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
           AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
