@@ -30,17 +30,12 @@ client.on("guildMemberRemove", (member) => {
 
 client.on('message', (message) => {
   if(message.author.bot) return;
-
-  if(message.content == '!ping') {
-    return message.reply('pong');
-  }
-
-  if(message.content == '!help') 
+  
+  if(message.content == '!도움말') 
   {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '!help', desc: '도움말'},
-      {name: '!ping', desc: '현재 핑 상태'},
+      {name: '!도움말', desc: '도움말'},
       {name: '!프로필', desc: '프로필 확인'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
       {name: '!전체공지e', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
