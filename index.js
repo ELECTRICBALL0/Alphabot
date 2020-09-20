@@ -88,12 +88,14 @@ client.on('message', (message) => {
 
     var clearLine = message.content.slice('!청소 '.length);
     var isNum = !isNaN(clearLine)
+    
+    message.channel.send(message.channel.send)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
       message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
       return;
-    } 
-    else if(!isNum) {
+    }
+    /*else if(!isNum) {
       if(message.content.split('<@').length == 2) {
         if(isNaN(message.content.split(' ')[2])) return;
 
@@ -118,7 +120,7 @@ client.on('message', (message) => {
           AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
         })
         .catch(console.error)
-    }
+    }*/
   }
 });
 
