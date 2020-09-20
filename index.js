@@ -30,7 +30,7 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == 'ping') {
+  if(message.content == '!ping') {
     return message.reply('kpong');
   }
 
@@ -45,23 +45,21 @@ client.on('message', (message) => {
       .addField('ㅇㅇ', 'ㅇㅇ')
       .addBlankField()
       .setTimestamp()
-      .setFooter('by 전지호ELEC-B', img)
+      .setFooter('written by 전지호', img)
 
     message.channel.send(embed)
   } 
-  else if(message.content == 'embed2') {
+  else if(message.content == '!help') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: 'ping', desc: '현재 핑 상태'},
-      {name: 'embed', desc: 'embed 예제1'},
-      {name: 'embed2', desc: 'embed 예제2 (help)'},
+      {name: '!ping', desc: '현재 핑 상태'},
+      {name: '!프로필', desc: 'embed 예제2 (help)'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
     ];
-    let commandStr = '';
+    let commandStr = '----';
     let embed = new Discord.RichEmbed()
-      .setAuthor('Help of 콜라곰 BOT', helpImg)
-      .setColor('#186de6')
-      .setFooter(`콜라곰 BOT ❤️`)
+      .setAuthor('Help', helpImg)
+      .setFooter(`written by 전지호`)
       .setTimestamp()
     
     commandList.forEach(x => {
