@@ -43,7 +43,7 @@ client.on('message', (message) => {
       .setAuthor(id)
       .setThumbnail(img)
       .setTimestamp()
-      .setFooter('written by 전지호', img)
+      .setFooter('coded by 전지호')
 
     message.channel.send(embed)
   } 
@@ -53,11 +53,12 @@ client.on('message', (message) => {
       {name: '!ping', desc: '현재 핑 상태'},
       {name: '!프로필', desc: '프로필 확인'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
+      {name: '!청소', desc : '채팅을 청소합니다.'}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
       .setAuthor('Help', helpImg)
-      .setFooter(`written by 전지호`)
+      .setFooter('coded by 전지호')
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -67,6 +68,13 @@ client.on('message', (message) => {
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
+  }
+  else if(message.content == '!초대코드') 
+  {
+    message.guild.channels.get(message.channel.id).createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
+      .then(invite => {
+        message.channel.send(invite.url)
+      });
   }
 
   if(message.content.startsWith('!전체공지')) {
