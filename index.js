@@ -148,7 +148,7 @@ client.on('message', (message) => {
     message.channel.send('병신ㅋㅋ');
   }
 
-  if(message.content.search('샌즈'))
+  if(!message.content.search('샌즈'))
   {
     message.channel.send('와! 샌즈!');
   }
