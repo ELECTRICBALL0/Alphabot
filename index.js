@@ -187,7 +187,7 @@ client.on('message', (message) => {
 
   if(message.content == '!문준혁')
   {
-    message.channel.send('병신ㅋㅋ');
+    return message.reply('병신ㅋㅋ');
   }
 
 });
