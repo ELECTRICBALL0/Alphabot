@@ -143,6 +143,11 @@ client.on('message', (message) => {
       }
   }
 
+  if(message.content == '!문준혁')
+  {
+    return message.reply('병신ㅋㅋ');
+  }
+
   if(message.content.startsWith('!청소')) 
   {
     if(checkPermission(message)) return
@@ -183,13 +188,6 @@ client.on('message', (message) => {
         .catch(console.error)
     }
   }
-
-
-  if(message.content == '!문준혁')
-  {
-    return message.reply('병신ㅋㅋ');
-  }
-
 });
 
 function checkPermission(message) {
